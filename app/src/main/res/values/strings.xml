@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">TrainingHelper</string>
+  <string name="title_item_detail">Item Detail</string>
+  <string name="title_item_new">New item</string>
+  <string name="default_text_training">New training</string>
+  <string name="warm_hint">Warming time</string>
+  <string name="running_hint">Running time</string>
+  <string name="target_hint">Running target (m)</string>
+  <string name="title_hint">Training title</string>
+  <string name="date_hint">When?</string>
+  <string name="stretch_hint">Stretching time</string>
+</resources>

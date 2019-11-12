@@ -88,6 +88,7 @@ public class ItemListActivity extends AppCompatActivity {
   private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
     try {
       List<TrainingContract> trainingContracts = TrainingMethods.getInstance().select();
+      Utils.setTrainingContractList(trainingContracts);
       recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, trainingContracts, mTwoPane));
     } catch (ParseException e) {
       e.printStackTrace();
@@ -106,7 +107,7 @@ public class ItemListActivity extends AppCompatActivity {
         TrainingContract item = (TrainingContract) view.getTag();
         if (mTwoPane) {
           Bundle arguments = new Bundle();
-          arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.getId());
+          arguments.putInt(ItemDetailFragment.ARG_ITEM_ID, item.getId());
           ItemDetailFragment fragment = new ItemDetailFragment();
           fragment.setArguments(arguments);
           mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -139,7 +140,7 @@ public class ItemListActivity extends AppCompatActivity {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-      holder.mIdView.setText(mValues.get(position).getId());
+      holder.mIdView.setText(String.valueOf(mValues.get(position).getId()));
       holder.mContentView.setText(mValues.get(position).getTitle());
 
       holder.itemView.setTag(mValues.get(position));

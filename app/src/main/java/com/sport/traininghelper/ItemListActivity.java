@@ -19,8 +19,11 @@ import android.widget.TextView;
 
 import com.sport.traininghelper.dummy.DummyContent;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -140,11 +143,17 @@ public class ItemListActivity extends AppCompatActivity {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-      holder.mIdView.setText(String.valueOf(mValues.get(position).getId()));
-      holder.mContentView.setText(mValues.get(position).getTitle());
+      try {
+        Date when = mValues.get(position).getWhen();
+        DateFormat sdf = new SimpleDateFormat("dd\nMMM");
+        holder.mIdWhen.setText(sdf.format(when));
+        holder.mContentView.setText(mValues.get(position) != null ? mValues.get(position).getTitle() != null ? mValues.get(position).getTitle() : "" : "");
 
-      holder.itemView.setTag(mValues.get(position));
-      holder.itemView.setOnClickListener(mOnClickListener);
+        holder.itemView.setTag(mValues.get(position));
+        holder.itemView.setOnClickListener(mOnClickListener);
+      } catch (Exception e) {
+        System.out.println(e.toString());
+      }
     }
 
     @Override
@@ -153,13 +162,13 @@ public class ItemListActivity extends AppCompatActivity {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-      final TextView mIdView;
+      final TextView mIdWhen;
       final TextView mContentView;
 
       ViewHolder(View view) {
         super(view);
-        mIdView = (TextView) view.findViewById(R.id.id_text);
-        mContentView = (TextView) view.findViewById(R.id.content);
+        mIdWhen = (TextView) view.findViewById(R.id.id_when);
+        mContentView = (TextView) view.findViewById(R.id.id_title);
       }
     }
   }

@@ -1,20 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
+  android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:orientation="horizontal">
-
   <TextView
-    android:id="@+id/id_text"
+    android:id="@+id/id_when"
+    android:text="25\nIan"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:maxWidth="40dp"
     android:layout_margin="@dimen/text_margin"
-    android:textAppearance="?attr/textAppearanceListItem" />
-
-  <TextView
-    android:id="@+id/content"
-    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:textAlignment="center"
+    android:textAppearance="?attr/textAppearanceListItem"
+    />
+  <LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/text_margin"
-    android:textAppearance="?attr/textAppearanceListItem" />
+    android:orientation="vertical">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+      <TextView
+        android:id="@+id/id_title"
+        android:text="12312312"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+      <TextView
+        android:id="@+id/id_total_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <TextView
+        android:id="@+id/id_status"
+        android:text="Started (Warming)"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_margin="@dimen/small_margin"
+        />
+      <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layerType="hardware"
+        />
+    </LinearLayout>
+  </LinearLayout>
 </LinearLayout>
+
